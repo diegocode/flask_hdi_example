@@ -9,3 +9,4 @@ A Flask application showing:
 - SQLite (SQL queries) 
 - etc.
  
+data & images source: wikipedia (https://en.wikipedia.org/wiki/Human_Development_Index)
