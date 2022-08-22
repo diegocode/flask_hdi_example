@@ -65,17 +65,27 @@ def contacto():
 @app.route('/consulta/<nombre_pais>')
 def dar_datos_pais(nombre_pais):
     #nombre_pais = 'Argentina'
-    datos_pais = list(filter(lambda c: c['country'] == nombre_pais, datos_hdi))
+    cn = sqlite3.connect('datos.db')
+    resu = cn.execute(f"SELECT * FROM DATOSHDI WHERE nombre like '{nombre_pais}'")
+    datos_pais = resu.fetchone()
+    cn.close()
+    #print(datos_pais)
     if len(datos_pais) == 0:
         datos_pais = {'country': '?', 'hdi': '?', 'pop2022': '?'}
     else:
-        datos_pais = datos_pais[0]
+        datos_pais = {'country': datos_pais[1], 'hdi': datos_pais[2], 'pop2022': datos_pais[3]}
     return jsonify(datos_pais)
 
 
 @app.route('/listapaises')
 def daar_lista_paises():
-    return jsonify([d['country'] for d in datos_hdi])
+    cn = sqlite3.connect('datos.db')
+    resu = cn.execute(f"SELECT nombre FROM DATOSHDI ORDER BY nombre;")
+    datos_pais = [n[0] for n in resu.fetchall()]
+    #print(datos_pais)
+    cn.close()
+
+    return jsonify(datos_pais)
 
 
 app.run(host='0.0.0.0', port=8081, debug=True)
