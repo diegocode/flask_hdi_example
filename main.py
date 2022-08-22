@@ -1,8 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+from flask_cors import CORS
 import sqlite3
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/')
 def index():
@@ -58,7 +59,23 @@ def lista_top10():
 
 @app.route('/contacto')
 def contacto():
-      return render_template('contacto.html')
+    return render_template('contacto.html')
+
+
+@app.route('/consulta/<nombre_pais>')
+def dar_datos_pais(nombre_pais):
+    #nombre_pais = 'Argentina'
+    datos_pais = list(filter(lambda c: c['country'] == nombre_pais, datos_hdi))
+    if len(datos_pais) == 0:
+        datos_pais = {'country': '?', 'hdi': '?', 'pop2022': '?'}
+    else:
+        datos_pais = datos_pais[0]
+    return jsonify(datos_pais)
+
+
+@app.route('/listapaises')
+def daar_lista_paises():
+    return jsonify([d['country'] for d in datos_hdi])
 
 
 app.run(host='0.0.0.0', port=8081, debug=True)
