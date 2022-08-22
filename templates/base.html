@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Datos HDI</title>
+<link rel="stylesheet" type="text/css" 
+      href="{{ url_for('static', filename='styles.css') }}">
+</head>
+  <nav>
+    <a href="{{ url_for('index') }}">inicio</a>
+    <a href="{{ url_for('lista_top10') }}">listado</a>
+    <a href="{{ url_for('devuelve_cantidad') }}">cantidad de países</a>
+    <a href="{{ url_for('devuelve_cantidad_alta') }}">cantidad con HDI >0.8</a>
+    <a href="{{ url_for('dar_ayuda') }}">ayuda</a>
+    <a href="{{ url_for('contacto') }}">contacto</a>
+</nav>
+<body>
+{% block titulo %}{% endblock %}
+{% block contenido %}{% endblock %}
+</body>
+</html>

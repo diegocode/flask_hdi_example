@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block titulo %} 
+<h1>HDI</h1>
+<h2>Human Development Index</h2>
+{% endblock %}
+{% block contenido %} 
+<img src="{{ url_for('static', filename='img/hdi_explained.png') }}">
+<p>datos e imagenes de <a href="https://en.wikipedia.org/wiki/Human_Development_Index">wikipedia</a></p>
+{% endblock %}

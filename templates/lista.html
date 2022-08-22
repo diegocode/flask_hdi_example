@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block titulo %} 
+<h1>HDI - Top 10</h1>
+{% endblock %}
+{% block contenido %} 
+<ol>
+{% for pais in lista %}
+  <li>{{ pais[1] }}</li>
+{% endfor %}
+    </ol>
+  
+{% endblock %}
+  

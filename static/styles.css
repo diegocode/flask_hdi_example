@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ------ nav bar ------ */
+nav {
+    background-color: #1F5A95;
+    border-top: solid 1px #ccc;
+    overflow: hidden;
+}
+nav a {
+    float: left;
+    color: lightcyan;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+nav a.actual {
+    background-color: #ccc;
+    font-weight: bold;
+    color: black;
+}
+
+/* ------ fin nav bar ------ */
+
+h1, h2, h3, p, table, img {
+  margin-left: 10px;
+}
+
+table {
+    font-family: monospace;
+    font-size: 1em;
+}
+
+img {
+    border-top: solid 1px blue;
+    border-bottom: solid 1px blue;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.referencia_alto {
+    background-color: #12394b;
+    width: 50px;
+}
+
+.referencia_bajo {
+    background-color: #c1e6e6;
+    width: 50px;
+}

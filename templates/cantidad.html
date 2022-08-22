@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block titulo %} 
+<h1>Cantidad de países</h1>
+{% endblock %}
+{% block contenido %} 
+<h2>{{ subtitulo }}</h2>
+<h3>{{ cant_paises }}</h3>
+<table id="referencias">
+    <tr>
+        <td class="referencia_alto"></td><td>muy alto (> 0.8)</td>
+    <tr>
+    <tr>
+        <td class="referencia_bajo"></td><td>muy bajo (<= 0.549)</td>
+    </tr>
+</table>
+
+<img src="{{ url_for('static', filename='img/hdi_hi_lo.png') }}">
+<p>datos e imagenes de <a href="https://en.wikipedia.org/wiki/Human_Development_Index">wikipedia</a></p>
+{% endblock %}
